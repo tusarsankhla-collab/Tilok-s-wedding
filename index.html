@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilok &amp; Lakshmi — Wedding | 11 February 2027</title>
+    <meta name="description" content="Join Tilok &amp; Lakshmi as they begin their journey together on 11 February 2027. Digital Wedding Archive, Invitation, RSVP &amp; Memories.">
+    <meta name="keywords" content="Tilok and Lakshmi, Wedding, 11 February 2027, Digital Wedding Archive, Wedding PWA, Invitation">
+    <meta name="theme-color" content="#042F2E">
+
+    <!-- Open Graph / Social Sharing Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tilok &amp; Lakshmi — Wedding | 11 February 2027">
+    <meta property="og:description" content="Join Tilok &amp; Lakshmi as they begin their journey together on 11 February 2027. Digital Wedding Archive, Invitation, RSVP &amp; Memories.">
+    <meta property="og:image" content="./assets/icons/icon-512.svg">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tilok &amp; Lakshmi — Wedding | 11 February 2027">
+    <meta name="twitter:description" content="Join Tilok &amp; Lakshmi as they begin their journey together on 11 February 2027.">
+    <meta name="twitter:image" content="./assets/icons/icon-512.svg">
+
+    <!-- PWA Manifest & App Icons (Relative paths for GitHub Pages subfolder compatibility) -->
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/icon-192.svg">
+    <link rel="apple-touch-icon" href="./assets/icons/icon-192.svg">
+    
+    <!-- Google Fonts for Urban Rich Teal & English Cursive Calligraphy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel+Decorative:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Three.js CDN for 3D Interactive Invitation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+
+    <!-- Tasteful In-App PWA Install Prompt Banner -->
+    <div class="pwa-install-banner hidden" id="pwaInstallBanner">
+        <div class="pwa-banner-content">
+            <span class="pwa-heart">❤️</span>
+            <div class="pwa-banner-text">
+                <strong>Make our wedding part of your phone</strong>
+                <small>Install the app for offline access &amp; instant invitation access.</small>
+            </div>
+        </div>
+        <div class="pwa-banner-actions">
+            <button class="btn btn-primary-teal pwa-install-btn" id="btnInstallPwa">Install Wedding App</button>
+            <button class="pwa-dismiss-btn" id="btnDismissPwa" aria-label="Dismiss prompt"><i data-lucide="x"></i></button>
+        </div>
+    </div>
+
+    <!-- Top Announcement / Phase Switcher Bar -->
+    <header class="top-announcement-bar">
+        <div class="announcement-content">
+            <span class="sparkle-icon"><i data-lucide="sparkles"></i></span>
+            <span class="announcement-text" id="announcementText">Welcome to the Official Digital Wedding Archive of Tilok &amp; Lakshmi</span>
+        </div>
+        <div class="phase-evolution-controls">
+            <button class="btn-quick-edit-details" id="btnHeaderEditDetails" title="Edit Config Details">
+                <i data-lucide="settings"></i> <span>Config Info</span>
+            </button>
+            <div class="phase-buttons" id="phaseButtons">
+                <button class="phase-btn active" data-phase="before">Before Wedding</button>
+                <button class="phase-btn" data-phase="during">During Wedding</button>
+                <button class="phase-btn" data-phase="after">After Wedding</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation Header -->
+    <nav class="main-navbar" id="mainNavbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-initials font-cursive" id="navLogoInitials">Tilok &amp; Lakshmi</span>
+                <span class="logo-subtext">11 FEBRUARY 2027</span>
+            </a>
+
+            <div class="nav-menu-links" id="navMenuLinks">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#our-story" class="nav-link" data-section="our-story">Our Story</a>
+                <a href="#invitation" class="nav-link" data-section="invitation">Invitation</a>
+                <a href="#events" class="nav-link" data-section="events">Events</a>
+                <a href="#venue" class="nav-link" data-section="venue">Venue</a>
+                <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
+                <a href="#film" class="nav-link" data-section="film">The Film</a>
+                <a href="#archive" class="nav-link" data-section="archive">Archive</a>
+                <a href="#rsvp" class="nav-link" data-section="rsvp">RSVP</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#rsvp" class="btn btn-outline-teal">
+                    <i data-lucide="mail-check"></i> <span>RSVP</span>
+                </a>
+                <button class="btn btn-primary-teal" id="btnOpenAdmin">
+                    <i data-lucide="shield-check"></i> <span id="adminBtnLabel">Admin Suite</span>
+                </button>
+                <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Toggle menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN APP VIEWS CONTAINER -->
+    <main id="appMainContent">
+
+        <!-- ================= 1. HERO / HOME LANDING (QR Code Ready) ================= -->
+        <section id="home" class="app-section hero-section">
+            <div class="hero-backdrop">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <span class="hero-subtitle font-cursive">Together With Their Families</span>
+                <h1 class="hero-title font-cursive" id="heroCoupleNames">Tilok &amp; Lakshmi</h1>
+                
+                <div class="hero-date-badge" id="heroDateBadge">
+                    11 • 02 • 2027
+                </div>
+
+                <!-- Live Countdown Clock -->
+                <div class="countdown-container" id="countdownContainer">
+                    <div class="countdown-unit">
+                        <span class="count-number" id="countDays">00</span>
+                        <span class="count-label">Days</span>
+                    </div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-unit">
+                        <span class="count-number" id="countHours">00</span>
+                        <span class="count-label">Hours</span>
+                    </div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-unit">
+                        <span class="count-number" id="countMins">00</span>
+                        <span class="count-label">Mins</span>
+                    </div>
+                    <div class="countdown-sep">:</div>
+                    <div class="countdown-unit">
+                        <span class="count-number" id="countSecs">00</span>
+                        <span class="count-label">Secs</span>
+                    </div>
+                </div>
+
+                <p class="hero-tagline" id="heroTagline">Join us as we begin our eternal journey together on 11 February 2027.</p>
+
+                <div class="hero-cta-group">
+                    <a href="#our-story" class="btn btn-hero-teal">
+                        <i data-lucide="heart"></i> Enter Our Wedding Story
+                    </a>
+                    <a href="#invitation" class="btn btn-hero-glass">
+                        <i data-lucide="mail"></i> View 3D Invitation
+                    </a>
+                </div>
+
+                <div class="hero-details-strip">
+                    <div class="detail-item">
+                        <i data-lucide="calendar"></i>
+                        <span id="heroDate">11 February 2027</span>
+                    </div>
+                    <div class="detail-divider"></div>
+                    <div class="detail-item">
+                        <i data-lucide="map-pin"></i>
+                        <span id="heroVenue">Venue: To be added</span>
+                    </div>
+                    <div class="detail-divider"></div>
+                    <div class="detail-item">
+                        <i data-lucide="sparkles"></i>
+                        <span>Elegance &amp; Heritage</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#our-story" class="hero-scroll-down">
+                <span>Explore Wedding Story</span>
+                <i data-lucide="chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- ================= 2. OUR STORY SECTION ================= -->
+        <section id="our-story" class="app-section story-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-cursive">Two Hearts, One Journey</span>
+                    <h2 class="section-title font-cursive">OUR STORY</h2>
+                    <p class="section-description" id="storyText">
+                        Welcome to our wedding archive! We are excited to celebrate our special day with our family and cherished friends on 11 February 2027. More details about our journey will be shared here soon.
+                    </p>
+                </div>
+
+                <div class="story-highlights-grid">
+                    <div class="story-card">
+                        <div class="story-icon"><i data-lucide="heart"></i></div>
+                        <h3>The Beginning</h3>
+                        <p>Where our journey started and two paths aligned into one shared future.</p>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-icon"><i data-lucide="gem"></i></div>
+                        <h3>The Proposal</h3>
+                        <p>A memorable moment promising a lifetime of happiness, trust, and companionship.</p>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-icon"><i data-lucide="sparkles"></i></div>
+                        <h3>The Celebration</h3>
+                        <p>Joining hands under sacred rituals on 11 February 2027 amidst family blessings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 3. OUR INVITATION SECTION ================= -->
+        <section id="invitation" class="app-section invitation-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-cursive">Bespoke Experience</span>
+                    <h2 class="section-title font-cursive">OUR INVITATION</h2>
+                    <p class="section-description">
+                        Designed as a luxury digital keepsake. Explore our 3D digital invitation model, video trailer, or inspect the full formal PDF invitation document.
+                    </p>
+                </div>
+
+                <!-- 3D Invitation Presentation Box -->
+                <div class="invitation-experience-card">
+                    <div class="invitation-3d-viewport" id="invitation3DViewport">
+                        <div id="threeJsContainer" class="three-container"></div>
+
+                        <div class="viewport-controls-overlay">
+                            <div class="v-control-badge"><i data-lucide="move-3d"></i> WebGL 3D Interactive</div>
+                            <div class="v-buttons-group">
+                                <button class="v-btn" id="btnRotate3D" title="Rotate Invitation"><i data-lucide="rotate-cw"></i></button>
+                                <button class="v-btn" id="btnUnseal3D" title="Unseal Envelope"><i data-lucide="key"></i> Unseal</button>
+                                <button class="v-btn" id="btnFullscreen3D" title="Fullscreen View"><i data-lucide="maximize"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="invitation-formats-bar">
+                        <div class="format-item active" id="fmt3dBtn">
+                            <i data-lucide="box"></i>
+                            <div>
+                                <strong>3D Interactive Model</strong>
+                                <small>Interactive WebGL &amp; Wax Seal</small>
+                            </div>
+                        </div>
+                        <div class="format-item" id="fmtPdfBtn">
+                            <i data-lucide="file-text"></i>
+                            <div>
+                                <strong>High-Res PDF Document</strong>
+                                <small>Full multi-page invitation suite</small>
+                            </div>
+                        </div>
+                        <div class="format-item" id="fmtVideoBtn">
+                            <i data-lucide="film"></i>
+                            <div>
+                                <strong>3D Motion Video</strong>
+                                <small>Cinematic video invitation</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Open PDF Invitation Box -->
+                <div class="pdf-invitation-cover-card">
+                    <div class="cover-image-side">
+                        <div class="cover-teal-border">
+                            <div class="cover-inner" id="inviteCoverPreview">
+                                <h3 class="font-cursive" id="coverInitials">Tilok &amp; Lakshmi</h3>
+                                <p>Together with their families</p>
+                                <span class="cover-date" id="coverDate">11 · 02 · 2027</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cover-text-side">
+                        <span class="badge badge-teal">Official Document</span>
+                        <h3 class="cover-title font-cursive">Full Wedding Invitation Suite (PDF)</h3>
+                        <p class="cover-desc">
+                            Includes formal invitation cards, ceremony schedule, accommodation directions, dress code guidelines, and RSVP details.
+                        </p>
+                        <button class="btn btn-hero-teal" id="btnOpenPdfViewer">
+                            <i data-lucide="book-open"></i> OPEN INVITATION VIEWER
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 4. WEDDING EVENTS TIMELINE ================= -->
+        <section id="events" class="app-section events-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-cursive">Celebration Schedule</span>
+                    <h2 class="section-title font-cursive">WEDDING EVENTS</h2>
+                    <p class="section-description">
+                        Overview of our wedding festivities. Only the Wedding Date (11 February 2027) is confirmed; other event timings will be updated soon.
+                    </p>
+                </div>
+
+                <div class="events-timeline" id="eventsTimelineContainer">
+                    <!-- Events populated dynamically from WEDDING_CONFIG by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 5. VENUE INFORMATION ================= -->
+        <section id="venue" class="app-section venue-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-cursive">Location &amp; Stay</span>
+                    <h2 class="section-title font-cursive">THE VENUE</h2>
+                    <p class="section-description">
+                        Venue information and guest directions will be updated here once finalized.
+                    </p>
+                </div>
+
+                <div class="venue-content-grid">
+                    <div class="venue-info-card">
+                        <span class="badge badge-teal"><i data-lucide="map-pin"></i> Official Venue</span>
+                        <h3 class="venue-name font-cursive" id="venueNameText">To be added</h3>
+                        <p class="venue-address" id="venueAddressText">Address: To be added</p>
+                        
+                        <div class="venue-contact-block">
+                            <div class="contact-row">
+                                <i data-lucide="phone"></i>
+                                <span>Contact: <strong id="venuePhoneText">To be added</strong></span>
+                            </div>
+                            <div class="contact-row">
+                                <i data-lucide="mail"></i>
+                                <span>Email: <strong id="venueEmailText">To be added</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="venue-cta-group">
+                            <button class="btn btn-hero-teal" id="btnGetDirections">
+                                <i data-lucide="navigation"></i> Get Directions
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="venue-map-card">
+                        <div class="map-placeholder-box" id="mapPlaceholderBox">
+                            <i data-lucide="map" style="width:48px; height:48px; color:var(--color-teal-light); margin-bottom:1rem;"></i>
+                            <h4>Interactive Map Placeholder</h4>
+                            <p id="mapPlaceholderSub">Google Maps integration link will be updated here once the venue is confirmed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nearby Stay Info -->
+                <div class="accommodation-box">
+                    <h4 class="font-cursive"><i data-lucide="bed"></i> Accommodation &amp; Guest Stay</h4>
+                    <p id="accommodationText">Information regarding nearby hotels and stay arrangements will be provided here.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 6. MEMORIES / PHOTO GALLERY ================= -->
+        <section id="gallery" class="app-section moments-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-cursive">Cherished Moments</span>
+                    <h2 class="section-title font-cursive">PHOTO GALLERY</h2>
+                    <p class="section-description">
+                        Explore photographs organized into story categories. Supports high-res JPG, PNG, and WEBP formats.
+                    </p>
+                </div>
+
+                <!-- Search and Filter Bar -->
+                <div class="media-filter-bar">
+                    <div class="search-input-wrap">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="momentsSearchInput" placeholder="Search gallery by category, keyword...">
+                    </div>
+
+                    <div class="filter-group">
+                        <select id="filterTypeSelect" class="filter-select">
+                            <option value="ALL">All Media Types</option>
+                            <option value="IMAGE">Photographs</option>
+                            <option value="VIDEO">Videos &amp; Films</option>
+                            <option value="DOCUMENT">Documents &amp; PDFs</option>
+                            <option value="INVITATION">Invitation Assets</option>
+                        </select>
+
+                        <select id="filterEventSelect" class="filter-select">
+                            <!-- Categories populated from config -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Moments Gallery Grid -->
+                <div class="moments-masonry-grid" id="momentsMasonryGrid"></div>
+            </div>
+        </section>
+
+        <!-- ================= 7. WEDDING FILMS ================= -->
+        <section id="film" class="app-section film-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-cursive">Cinematic Stories</span>
+                    <h2 class="section-title font-cursive">WEDDING FILMS</h2>
+                    <p class="section-description">
+                        Stream our official wedding films, 3D invitation video, and pre-wedding clips.
+                    </p>
+                </div>
+
+                <!-- Featured Film Spotlight Banner -->
+                <div class="spotlight-film-card" id="spotlightFilmCard">
+                    <div class="spotlight-media-wrap">
+                        <img id="spotlightPoster" src="" alt="The Wedding Film Poster" class="spotlight-poster">
+                        <div class="spotlight-glass-overlay"></div>
+                        <button class="spotlight-play-btn" id="btnPlayFeaturedFilm">
+                            <i data-lucide="play"></i>
+                        </button>
+                    </div>
+                    <div class="spotlight-info">
+                        <span class="badge badge-teal"><i data-lucide="star"></i> FEATURED FILM</span>
+                        <h3 class="spotlight-title font-cursive" id="spotlightTitle">Tilok &amp; Lakshmi — The Feature Film</h3>
+                        <p class="spotlight-desc" id="spotlightDesc">
+                            An ethereal journey capturing our celebration, vows, and quiet moments between family and friends.
+                        </p>
+                        <div class="spotlight-meta">
+                            <span><i data-lucide="clock"></i> <strong id="spotlightDuration">14 mins</strong></span>
+                            <span><i data-lucide="video"></i> 4K Ultra HD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Categories Navigation -->
+                <div class="video-categories-bar">
+                    <span class="bar-label">Categories:</span>
+                    <div class="category-pills" id="videoCategoryPills"></div>
+                </div>
+
+                <!-- Video Grid Platform -->
+                <div class="video-grid" id="videoGridContainer"></div>
+
+                <!-- Vertical Shorts Section -->
+                <div class="vertical-shorts-container">
+                    <div class="shorts-header">
+                        <h3 class="font-cursive"><i data-lucide="smartphone"></i> Mobile Short Clips &amp; Reels</h3>
+                        <p>Bite-sized vertical highlights recorded by guests and family.</p>
+                    </div>
+                    <div class="shorts-scroll-row" id="shortsContainer"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 8. DIGITAL DOCUMENT LIBRARY (THE ARCHIVE) ================= -->
+        <section id="archive" class="app-section archive-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-cursive">Digital Keepsake Library</span>
+                    <h2 class="section-title font-cursive">WEDDING ARCHIVE</h2>
+                    <p class="section-description">
+                        Important documents, invitations, itineraries, travel guides, and venue PDFs with instant view and download.
+                    </p>
+                </div>
+
+                <div class="documents-grid" id="documentsGridContainer"></div>
+            </div>
+        </section>
+
+        <!-- ================= 9. RSVP SECTION (Google Form Ready) ================= -->
+        <section id="rsvp" class="app-section rsvp-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-cursive">Respond Please</span>
+                    <h2 class="section-title font-cursive">RSVP</h2>
+                    <p class="section-description">
+                        Please confirm your attendance for the wedding celebrations of Tilok &amp; Lakshmi on 11 February 2027.
+                    </p>
+                </div>
+
+                <div class="rsvp-card-wrap">
+                    <form id="rsvpForm" class="rsvp-form">
+                        <div class="form-group">
+                            <label>Your Full Name *</label>
+                            <input type="text" id="rsvpGuestName" required placeholder="e.g. Ramesh &amp; Family">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label>Number of Guests *</label>
+                                <input type="number" id="rsvpGuestCount" min="1" max="10" value="1" required>
+                            </div>
+                            <div class="form-group col-6">
+                                <label>Phone Number *</label>
+                                <input type="tel" id="rsvpPhone" required placeholder="e.g. +91 98765 43210">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Events You Will Attend</label>
+                            <div class="rsvp-events-checkboxes">
+                                <label><input type="checkbox" name="rsvpEvent" value="Wedding" checked> Wedding Ceremony (11 Feb 2027)</label>
+                                <label><input type="checkbox" name="rsvpEvent" value="Reception"> Reception</label>
+                                <label><input type="checkbox" name="rsvpEvent" value="Sangeet"> Sangeet</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Dietary Preferences / Requirements</label>
+                            <input type="text" id="rsvpDietary" placeholder="e.g. Vegetarian, Jain, No Onion/Garlic, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Wishes / Message for the Couple</label>
+                            <textarea id="rsvpMessage" rows="3" placeholder="Write your warm wishes for Tilok &amp; Lakshmi..."></textarea>
+                        </div>
+
+                        <div class="form-footer text-center">
+                            <button type="submit" class="btn btn-hero-teal">
+                                <i data-lucide="send"></i> Confirm My RSVP
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 10. MEMORY WALL SECTION ================= -->
+        <section id="memory-wall" class="app-section memory-wall-section">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle font-cursive">Living Keepsake</span>
+                    <h2 class="section-title font-cursive">THE MEMORY WALL</h2>
+                    <p class="section-description">
+                        Guest-contributed photos, love notes, and wishes that bring our celebration to life.
+                    </p>
+                    <button class="btn btn-hero-teal mt-4" id="btnOpenUploadModal">
+                        <i data-lucide="plus-circle"></i> Contribute Your Photo &amp; Wishes
+                    </button>
+                </div>
+
+                <div class="memory-wall-stats">
+                    <div class="m-stat">
+                        <span class="m-number font-cursive" id="approvedPhotoCount">0</span>
+                        <span class="m-label">Approved Guest Photos</span>
+                    </div>
+                    <div class="m-stat">
+                        <span class="m-number font-cursive" id="audioNoteCount">0</span>
+                        <span class="m-label">Voice Messages</span>
+                    </div>
+                    <div class="m-stat">
+                        <span class="m-number font-cursive" id="wishesCount">0</span>
+                        <span class="m-label">Love Wishes</span>
+                    </div>
+                </div>
+
+                <div class="memory-wall-grid" id="memoryWallGrid"></div>
+            </div>
+        </section>
+
+        <!-- ================= 11. ADMIN MEDIA MANAGEMENT DASHBOARD ================= -->
+        <section id="admin-suite" class="app-section admin-section hidden">
+            <div class="section-container">
+                <div class="admin-header-bar">
+                    <div>
+                        <span class="badge badge-teal"><i data-lucide="shield"></i> ADMIN CONTROL CENTER</span>
+                        <h2 class="admin-title font-cursive">MEDIA LIBRARY &amp; ARCHIVE MANAGER</h2>
+                    </div>
+                    <div class="admin-top-actions">
+                        <button class="btn btn-hero-teal" id="btnAdminUploadNew">
+                            <i data-lucide="upload-cloud"></i> Upload New Media
+                        </button>
+                        <button class="btn btn-outline-glass" id="btnCloseAdmin">
+                            <i data-lucide="x"></i> Exit Admin
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Admin Tabs -->
+                <div class="admin-nav-tabs">
+                    <button class="admin-tab active" data-tab="ALL"><i data-lucide="layers"></i> All Items</button>
+                    <button class="admin-tab" data-tab="IMAGES"><i data-lucide="image"></i> Photos</button>
+                    <button class="admin-tab" data-tab="VIDEOS"><i data-lucide="film"></i> Videos</button>
+                    <button class="admin-tab" data-tab="DOCUMENTS"><i data-lucide="file-text"></i> Documents</button>
+                    <button class="admin-tab" data-tab="INVITATIONS"><i data-lucide="mail"></i> Invitations</button>
+                    <button class="admin-tab" data-tab="MODERATION">
+                        <i data-lucide="clock"></i> Guest Moderation Queue 
+                        <span class="badge-pending-count" id="pendingModerationBadge">0</span>
+                    </button>
+                    <button class="admin-tab" data-tab="STORAGE"><i data-lucide="hard-drive"></i> Storage Tree</button>
+                </div>
+
+                <!-- Admin Content Table / Cards Container -->
+                <div class="admin-tab-content" id="adminTabContent"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="footer-logo font-cursive" id="footerLogoNames">Tilok &amp; Lakshmi</span>
+                <p>Digital Wedding Archive &amp; PWA Keepsake</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#our-story">Our Story</a>
+                <a href="#invitation">Invitation</a>
+                <a href="#events">Events</a>
+                <a href="#archive">Archive</a>
+                <a href="#rsvp">RSVP</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2027 <span id="footerCopyrightNames">Tilok &amp; Lakshmi</span>. Crafted with love for our family and friends.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODALS & OVERLAYS ================= -->
+
+    <!-- 0. EDIT WEDDING DETAILS MODAL -->
+    <div class="modal-overlay hidden" id="editDetailsModal">
+        <div class="modal-window form-modal-window">
+            <div class="modal-header">
+                <h3 class="font-cursive"><i data-lucide="edit-3"></i> Edit Config Information</h3>
+                <button class="modal-close-btn" id="closeEditDetailsBtn"><i data-lucide="x"></i></button>
+            </div>
+            <form id="editDetailsForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label>Groom's Name *</label>
+                        <input type="text" id="editGroomName" required placeholder="Tilok">
+                    </div>
+                    <div class="form-group col-6">
+                        <label>Bride's Name *</label>
+                        <input type="text" id="editBrideName" required placeholder="Lakshmi">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Wedding Date *</label>
+                    <input type="text" id="editWeddingDate" required placeholder="11 February 2027">
+                </div>
+
+                <div class="form-group">
+                    <label>Venue Location</label>
+                    <input type="text" id="editWeddingVenue" placeholder="To be added">
+                </div>
+
+                <div class="form-group">
+                    <label>Hero Tagline / Quote</label>
+                    <textarea id="editWeddingTagline" rows="2" placeholder="Join us as we begin our eternal journey together on 11 February 2027."></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-glass" id="cancelEditDetailsBtn">Cancel</button>
+                    <button type="submit" class="btn btn-hero-teal"><i data-lucide="check"></i> Save &amp; Update Live</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 1. FULLSCREEN PDF DOCUMENT VIEWER MODAL -->
+    <div class="modal-overlay hidden" id="pdfViewerModal">
+        <div class="modal-window pdf-modal-window">
+            <div class="pdf-toolbar">
+                <div class="pdf-title-info">
+                    <i data-lucide="file-text"></i>
+                    <span id="pdfViewerTitle">Wedding Invitation Suite.pdf</span>
+                </div>
+                <div class="pdf-controls">
+                    <button class="pdf-btn" id="pdfPrevPage" title="Previous Page"><i data-lucide="chevron-left"></i></button>
+                    <span class="pdf-page-indicator"><span id="pdfCurrentPage">1</span> / <span id="pdfTotalPages">4</span></span>
+                    <button class="pdf-btn" id="pdfNextPage" title="Next Page"><i data-lucide="chevron-right"></i></button>
+                    <div class="pdf-divider"></div>
+                    <button class="pdf-btn" id="pdfZoomOut" title="Zoom Out"><i data-lucide="zoom-out"></i></button>
+                    <span class="pdf-zoom-label" id="pdfZoomVal">100%</span>
+                    <button class="pdf-btn" id="pdfZoomIn" title="Zoom In"><i data-lucide="zoom-in"></i></button>
+                    <div class="pdf-divider"></div>
+                    <button class="pdf-btn" id="pdfDownloadBtn" title="Download Document"><i data-lucide="download"></i> Download</button>
+                    <button class="pdf-btn pdf-close-btn" id="pdfCloseBtn" title="Close Viewer"><i data-lucide="x"></i></button>
+                </div>
+            </div>
+
+            <div class="pdf-viewer-body">
+                <div class="pdf-sidebar" id="pdfSidebar">
+                    <div class="sidebar-header">Pages</div>
+                    <div class="pdf-thumbnails-list" id="pdfThumbnailsList"></div>
+                </div>
+                <div class="pdf-canvas-container" id="pdfCanvasContainer">
+                    <div class="pdf-page-sheet" id="pdfPageSheet"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. CINEMATIC VIDEO PLAYER MODAL -->
+    <div class="modal-overlay hidden" id="videoPlayerModal">
+        <div class="modal-window video-modal-window">
+            <button class="video-modal-close" id="closeVideoModalBtn"><i data-lucide="x"></i></button>
+            <div class="cinema-player-box">
+                <video id="cinemaVideoElement" class="cinema-video" poster="" playsinline></video>
+                
+                <div class="cinema-controls-bar">
+                    <div class="progress-bar-wrap" id="videoProgressWrap">
+                        <div class="progress-filled" id="videoProgressFilled"></div>
+                    </div>
+                    <div class="controls-row">
+                        <div class="left-ctrls">
+                            <button class="ctrl-btn" id="videoPlayPauseBtn"><i data-lucide="play"></i></button>
+                            <span class="time-display"><span id="videoCurrentTime">0:00</span> / <span id="videoTotalDuration">0:00</span></span>
+                        </div>
+                        <div class="mid-ctrls">
+                            <h4 id="videoModalTitle">Video Title</h4>
+                        </div>
+                        <div class="right-ctrls">
+                            <button class="ctrl-btn" id="videoMuteBtn"><i data-lucide="volume-2"></i></button>
+                            <button class="ctrl-btn" id="videoFullscreenBtn"><i data-lucide="maximize"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. MEDIA DETAIL / LIGHTBOX MODAL -->
+    <div class="modal-overlay hidden" id="mediaDetailModal">
+        <div class="modal-window detail-modal-window">
+            <button class="modal-close-btn" id="closeMediaDetailBtn"><i data-lucide="x"></i></button>
+            <div class="detail-grid">
+                <div class="detail-visual-side" id="detailVisualSide"></div>
+                <div class="detail-meta-side">
+                    <div class="meta-header">
+                        <span class="badge badge-teal" id="detailCategoryBadge">WEDDING</span>
+                        <span class="badge badge-glass" id="detailVisibilityBadge">GUESTS</span>
+                    </div>
+                    <h2 class="meta-title font-cursive" id="detailTitle">Item Title</h2>
+                    <p class="meta-desc" id="detailDescription">Item Description</p>
+                    
+                    <div class="meta-specs-table">
+                        <div class="spec-row"><span>Upload Date:</span> <strong id="detailDate">11 Feb 2027</strong></div>
+                        <div class="spec-row"><span>Format / Type:</span> <strong id="detailFileType">JPG Image</strong></div>
+                        <div class="spec-row"><span>File Size:</span> <strong id="detailFileSize">3.4 MB</strong></div>
+                        <div class="spec-row"><span>Status:</span> <strong id="detailStatus">PUBLISHED</strong></div>
+                    </div>
+
+                    <div class="detail-actions">
+                        <button class="btn btn-primary-teal" id="detailDownloadBtn"><i data-lucide="download"></i> Download Original</button>
+                        <button class="btn btn-outline-glass" id="detailShareBtn"><i data-lucide="share-2"></i> Copy Link</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. GUEST PHOTO UPLOAD MODAL -->
+    <div class="modal-overlay hidden" id="guestUploadModal">
+        <div class="modal-window form-modal-window">
+            <div class="modal-header">
+                <h3 class="font-cursive"><i data-lucide="camera"></i> Share Your Memory</h3>
+                <button class="modal-close-btn" id="closeGuestUploadBtn"><i data-lucide="x"></i></button>
+            </div>
+            <form id="guestUploadForm" class="modal-form">
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" id="guestAuthorName" required placeholder="e.g. Ramesh &amp; Family">
+                </div>
+
+                <div class="form-group">
+                    <label>Memory Title *</label>
+                    <input type="text" id="guestMemoryTitle" required placeholder="e.g. Sangeet Dancing Highlights">
+                </div>
+
+                <div class="form-group">
+                    <label>Event Category</label>
+                    <select id="guestEventCategory">
+                        <option value="Wedding Day">Wedding Day</option>
+                        <option value="Reception">Reception</option>
+                        <option value="Mehendi">Mehendi</option>
+                        <option value="Haldi">Haldi</option>
+                        <option value="Engagement">Engagement</option>
+                        <option value="Our Story">Our Story</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Photo or Large Video File *</label>
+                    <div class="upload-dropzone" id="guestDropzone">
+                        <i data-lucide="upload-cloud"></i>
+                        <p>Click or drag Photo or Video file here (Any Size Supported)</p>
+                        <input type="file" id="guestFileInput" accept="image/*,video/*,audio/*,.pdf" hidden>
+                        <div class="file-preview-box hidden" id="guestFilePreviewBox">
+                            <span class="preview-filename" id="guestFileName">filename.mp4</span>
+                            <span class="preview-filesize" id="guestFileSize">0 MB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-progress-wrap hidden" id="guestUploadProgressWrap">
+                        <div class="progress-bar-track">
+                            <div class="progress-bar-fill" id="guestUploadProgressFill"></div>
+                        </div>
+                        <div class="progress-status-text">
+                            <span id="guestProgressPercent">0%</span> • <span id="guestProgressStatus">Uploading file...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Note / Message for Tilok &amp; Lakshmi</label>
+                    <textarea id="guestMemoryNote" rows="3" placeholder="Write your warm message for the couple..."></textarea>
+                </div>
+
+                <div class="moderation-notice">
+                    <i data-lucide="shield-alert"></i>
+                    <span>Notice: All guest submissions undergo quick review before appearing on the Memory Wall.</span>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-glass" id="cancelGuestUploadBtn">Cancel</button>
+                    <button type="submit" class="btn btn-hero-teal" id="submitGuestUploadBtn"><i data-lucide="send"></i> Submit Memory</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 5. ADMIN UPLOAD MODAL -->
+    <div class="modal-overlay hidden" id="adminMediaModal">
+        <div class="modal-window form-modal-window">
+            <div class="modal-header">
+                <h3 id="adminModalTitle" class="font-cursive"><i data-lucide="upload"></i> Add Media to Archive</h3>
+                <button class="modal-close-btn" id="closeAdminMediaBtn"><i data-lucide="x"></i></button>
+            </div>
+            <form id="adminMediaForm" class="modal-form">
+                <input type="hidden" id="adminEditItemId" value="">
+
+                <div class="form-group">
+                    <label>Media Title *</label>
+                    <input type="text" id="adminTitle" required placeholder="e.g. Wedding Reception Highlights">
+                </div>
+
+                <div class="form-group">
+                    <label>Description / Caption</label>
+                    <textarea id="adminDescription" rows="2" placeholder="Editorial description..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label>Media Type</label>
+                        <select id="adminMediaType">
+                            <option value="IMAGE">Photograph (JPG/PNG)</option>
+                            <option value="VIDEO">Video / Film (MP4/WebM)</option>
+                            <option value="DOCUMENT">PDF Document</option>
+                            <option value="INVITATION">Invitation Asset</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label>Category</label>
+                        <select id="adminCategory">
+                            <option value="Our Story">Our Story</option>
+                            <option value="Engagement">Engagement</option>
+                            <option value="Pre-Wedding">Pre-Wedding</option>
+                            <option value="Family">Family</option>
+                            <option value="Friends">Friends</option>
+                            <option value="Wedding Preparations">Wedding Preparations</option>
+                            <option value="Wedding Day">Wedding Day</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label>Visibility Setting</label>
+                        <select id="adminVisibility">
+                            <option value="GUESTS">GUESTS (Default)</option>
+                            <option value="PRIVATE">PRIVATE (Admin only)</option>
+                            <option value="PUBLIC">PUBLIC (Everyone)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label>Publication Status</label>
+                        <select id="adminStatus">
+                            <option value="PUBLISHED">PUBLISHED</option>
+                            <option value="DRAFT">DRAFT</option>
+                            <option value="ARCHIVED">ARCHIVED</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-6 checkbox-group">
+                        <label><input type="checkbox" id="adminFeatured"> Featured on Homepage</label>
+                    </div>
+                    <div class="form-group col-6 checkbox-group">
+                        <label><input type="checkbox" id="adminWeddingFilm"> Is The Wedding Film</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Select / Upload File</label>
+                    <div class="upload-dropzone" id="adminDropzone">
+                        <i data-lucide="upload-cloud"></i>
+                        <p>Click or drag photo, video, or PDF here</p>
+                        <input type="file" id="adminFileInput" accept="image/*,video/*,audio/*,.pdf" hidden>
+                        <div class="file-preview-box hidden" id="adminFilePreviewBox">
+                            <span class="preview-filename" id="adminFileName">filename.mp4</span>
+                            <span class="preview-filesize" id="adminFileSize">0 MB</span>
+                        </div>
+                    </div>
+
+                    <div class="upload-progress-wrap hidden" id="adminUploadProgressWrap">
+                        <div class="progress-bar-track">
+                            <div class="progress-bar-fill" id="adminUploadProgressFill"></div>
+                        </div>
+                        <div class="progress-status-text">
+                            <span id="adminProgressPercent">0%</span> • <span id="adminProgressStatus">Uploading file...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-glass" id="cancelAdminMediaBtn">Cancel</button>
+                    <button type="submit" class="btn btn-hero-teal" id="submitAdminMediaBtn"><i data-lucide="check-circle"></i> Save Media Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION STACK -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts (wedding-config.js MUST load before app.js) -->
+    <script src="./js/wedding-config.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/3d-invitation.js"></script>
+    <script src="./js/pdf-viewer.js"></script>
+    <script src="./js/video-player.js"></script>
+    <script src="./js/media-manager.js"></script>
+    <script src="./js/memory-wall.js"></script>
+    <script src="./js/search-filter.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
